@@ -4,7 +4,7 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: verify example manifest (must pass)
         run: python3 tgs_verify.py examples/manifest.json --no-color
       - name: tampered delivery (must fail)
