@@ -4,6 +4,8 @@
 
 Single file. Zero dependencies. Python 3.8+. Fully offline — verification never phones home and requires nothing from the supplier.
 
+Or skip the clone: `pip install tgs-verify` then `tgs-verify <manifest.json>`.
+
 ## 30-second demo
 
 ```bash

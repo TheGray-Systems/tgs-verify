@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tgs-verify"
+version = "1.0.0"
+description = "Offline verifier for TGS custody manifests — per-asset provenance for AI training data"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [{name = "The Gray Systems", email = "contact@thegray.systems"}]
+keywords = ["provenance", "chain-of-custody", "ai-training-data", "sha256", "dataset-verification", "synthetic-data"]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Intended Audience :: Developers",
+  "Topic :: Security",
+]
+
+[project.urls]
+Homepage = "https://thegray.systems"
+Repository = "https://github.com/TheGray-Systems/tgs-verify"
+
+[project.scripts]
+tgs-verify = "tgs_verify:main"
+
+[tool.setuptools]
+py-modules = ["tgs_verify"]
