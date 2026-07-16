@@ -57,6 +57,7 @@ Training-data provenance fails quietly. A dataset changes hands, a file gets re-
 ## Roadmap
 
 - **v1.1** — Ed25519 manifest signatures (tamper-evident, attributable manifests) per SPEC §5.
+- **v1.0** — `license.class` expanded to six classes — `evaluation-only`, `non-exclusive`, `training-only`, `exclusive`, `full-ip-buyout`, `custom` — aligned with the TGS delivery system.
 
 ## License
 
