@@ -88,6 +88,7 @@ Deliveries may also carry a flat CSV manifest (one row per file with at minimum 
 
 - `signature` block: Ed25519 signature over the canonicalized manifest, so the *manifest itself* is tamper-evident and attributable to the supplier's published key.
 - `manifest_sha256` self-fingerprint convention for detached distribution.
+- Done (v1.0): `license.class` expanded to six classes — `evaluation-only`, `non-exclusive`, `training-only`, `exclusive`, `full-ip-buyout`, `custom` — aligned with the TGS delivery system.
 
 ## 6. What this spec is not
 
