@@ -1,0 +1,61 @@
+{
+  "manifest_type": "tgs-custody-manifest",
+  "manifest_version": "1.0",
+  "project": {
+    "id": "PN-EXAMPLE-01",
+    "supplier": "The Gray Systems",
+    "url": "https://thegray.systems"
+  },
+  "created": "2026-07-16T00:00:00Z",
+  "license": {
+    "class": "evaluation-only",
+    "terms_url": "https://thegray.systems/legal.dc.html"
+  },
+  "assets": [
+    {
+      "path": "assets/scene_0001.png",
+      "sha256": "c0c4002a61f865bb1c58cbcae7ef75a85a14dc6e124638ba8b9c36a8743c5162",
+      "bytes": 12420,
+      "origin": "synthetic",
+      "generator": {
+        "model": "example-noise-field",
+        "version": "1.0",
+        "license": "MIT (example)"
+      },
+      "params": {
+        "seed": 7919,
+        "size": "64x64"
+      }
+    },
+    {
+      "path": "assets/scene_0002.png",
+      "sha256": "87226cc1ea6769e99c63d63a20fd4d1fb1197c73078d96f8bd08607323ebf934",
+      "bytes": 12420,
+      "origin": "synthetic",
+      "generator": {
+        "model": "example-noise-field",
+        "version": "1.0",
+        "license": "MIT (example)"
+      },
+      "params": {
+        "seed": 15838,
+        "size": "64x64"
+      }
+    },
+    {
+      "path": "assets/scene_0003.png",
+      "sha256": "be0eb7f19036bd7fdad287e57be49c4a20d868c9b1b670d0e6908828838e53f1",
+      "bytes": 12420,
+      "origin": "synthetic",
+      "generator": {
+        "model": "example-noise-field",
+        "version": "1.0",
+        "license": "MIT (example)"
+      },
+      "params": {
+        "seed": 23757,
+        "size": "64x64"
+      }
+    }
+  ]
+}

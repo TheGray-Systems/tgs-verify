@@ -1,0 +1,16 @@
+name: verify
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: verify example manifest (must pass)
+        run: python3 tgs_verify.py examples/manifest.json --no-color
+      - name: tampered delivery (must fail)
+        run: |
+          if python3 tgs_verify.py examples/manifest.json --root examples/tampered --no-color; then
+            echo "tampered delivery passed verification — verifier is broken" && exit 1
+          else
+            echo "tamper correctly detected"
+          fi
