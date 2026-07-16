@@ -34,7 +34,7 @@ TOOL_VERSION = "1.0.0"
 
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 ORIGINS = {"synthetic", "recorded", "collected"}
-LICENSE_CLASSES = {"evaluation-only", "non-exclusive", "exclusive", "full-transfer"}
+LICENSE_CLASSES = {"evaluation-only", "non-exclusive", "training-only", "exclusive", "full-ip-buyout", "custom"}
 
 GREEN, RED, YELLOW, DIM, RESET = "\033[32m", "\033[31m", "\033[33m", "\033[2m", "\033[0m"
 

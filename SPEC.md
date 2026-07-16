@@ -34,7 +34,7 @@ A manifest is a single UTF-8 JSON object, conventionally named `PN-<project-id>_
 | `project.id` | ✔ | Supplier's project number. |
 | `project.supplier` / `project.url` | ✔ | Who stands behind the record. |
 | `created` | ✔ | ISO-8601 UTC timestamp of manifest creation. |
-| `license.class` | ✔ | One of `evaluation-only`, `non-exclusive`, `exclusive`, `full-transfer`. Delivery-level default; assets may override. |
+| `license.class` | ✔ | One of `evaluation-only`, `non-exclusive`, `training-only`, `exclusive`, `full-ip-buyout`, `custom`. Delivery-level default; assets may override. |
 | `license.terms_url` | – | Where the governing terms live. |
 
 ## 2. Assets

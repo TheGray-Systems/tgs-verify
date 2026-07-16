@@ -46,7 +46,7 @@ Exit codes: `0` verified · `1` failed · `2` manifest unreadable. Wire it into 
 
 ## What a custody manifest records
 
-Every asset in a TGS delivery carries: a **SHA-256 fingerprint** of the exact delivered bytes, a **declared origin** (`synthetic` / `recorded` / `collected`), for synthetic assets the **generator model, version, and the license it was operated under**, optional **generation parameters**, and the **license class** the data ships under (`evaluation-only`, `non-exclusive`, `exclusive`, `full-transfer`). The full format is defined in [SPEC.md](./SPEC.md).
+Every asset in a TGS delivery carries: a **SHA-256 fingerprint** of the exact delivered bytes, a **declared origin** (`synthetic` / `recorded` / `collected`), for synthetic assets the **generator model, version, and the license it was operated under**, optional **generation parameters**, and the **license class** the data ships under (`evaluation-only`, `non-exclusive`, `training-only`, `exclusive`, `full-ip-buyout`, `custom`). The full format is defined in [SPEC.md](./SPEC.md).
 
 The verifier checks the certificate, not the factory: it proves delivery integrity and documented provenance without exposing anything about how data is produced.
 
