@@ -29,11 +29,11 @@ import os
 import re
 import sys
 
-SPEC_VERSION = "1.0"
-TOOL_VERSION = "1.0.0"
+SPEC_VERSION = "1.1"
+TOOL_VERSION = "1.1.0"
 
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
-ORIGINS = {"synthetic", "recorded", "collected"}
+ORIGINS = {"synthetic", "recorded", "collected", "authored", "derived"}
 LICENSE_CLASSES = {"evaluation-only", "non-exclusive", "training-only", "exclusive", "full-ip-buyout", "custom"}
 
 GREEN, RED, YELLOW, DIM, RESET = "\033[32m", "\033[31m", "\033[33m", "\033[2m", "\033[0m"
@@ -70,6 +70,16 @@ def load_json_manifest(path):
         errs.append('manifest_type must be "tgs-custody-manifest"')
     if not str(m.get("manifest_version", "")).startswith("1."):
         errs.append('manifest_version must be a "1.x" version')
+
+    proj = m.get("project")
+    if not isinstance(proj, dict) or not proj:
+        errs.append('"project" block is required')
+    else:
+        if not proj.get("id"):
+            errs.append("project.id is required and must be non-empty")
+        if not proj.get("produced_by") and not proj.get("supplier"):
+            errs.append("project.produced_by (or deprecated alias project.supplier) is required and must be non-empty")
+
     if not isinstance(m.get("assets"), list) or not m["assets"]:
         errs.append('"assets" must be a non-empty list')
         return m, errs
@@ -93,6 +103,10 @@ def load_json_manifest(path):
             for field in ("model", "license"):
                 if not gen.get(field):
                     errs.append("%s: synthetic asset requires generator.%s" % (tag, field))
+        if a.get("origin") == "derived":
+            derived_from = a.get("derived_from")
+            if not isinstance(derived_from, list) or not derived_from:
+                errs.append("%s: derived asset requires a non-empty derived_from list" % tag)
         if "bytes" in a and not isinstance(a["bytes"], int):
             errs.append("%s: bytes must be an integer" % tag)
 

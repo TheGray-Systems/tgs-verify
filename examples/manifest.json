@@ -3,7 +3,7 @@
   "manifest_version": "1.0",
   "project": {
     "id": "PN-EXAMPLE-01",
-    "supplier": "The Gray Systems",
+    "produced_by": "The Gray Systems",
     "url": "https://thegray.systems"
   },
   "created": "2026-07-16T00:00:00Z",

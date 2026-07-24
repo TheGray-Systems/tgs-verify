@@ -58,7 +58,8 @@ Training-data provenance fails quietly. A dataset changes hands, a file gets re-
 
 ## Roadmap
 
-- **v1.1** — Ed25519 manifest signatures (tamper-evident, attributable manifests) per SPEC §5.
+- **v1.2** — Ed25519 manifest signatures (tamper-evident, attributable manifests) per SPEC §5.
+- **v1.1** — `project.produced_by` (renamed from `project.supplier`, which remains a deprecated alias); project block now validated; two new origin values — `authored`, `derived` (with required `derived_from`).
 - **v1.0** — `license.class` expanded to six classes — `evaluation-only`, `non-exclusive`, `training-only`, `exclusive`, `full-ip-buyout`, `custom` — aligned with the TGS delivery system.
 
 ## License

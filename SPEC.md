@@ -1,4 +1,4 @@
-# TGS Custody Manifest Format — v1.0
+# TGS Custody Manifest Format — v1.1
 
 **Status:** Stable · **Maintainer:** [The Gray Systems](https://thegray.systems) · **Verifier:** [`tgs_verify.py`](./tgs_verify.py)
 
@@ -15,10 +15,10 @@ A manifest is a single UTF-8 JSON object, conventionally named `PN-<project-id>_
 ```json
 {
   "manifest_type": "tgs-custody-manifest",
-  "manifest_version": "1.0",
+  "manifest_version": "1.1",
   "project": {
     "id": "PN-00000000",
-    "supplier": "The Gray Systems",
+    "produced_by": "The Gray Systems",
     "url": "https://thegray.systems"
   },
   "created": "2026-07-16T00:00:00Z",
@@ -32,7 +32,7 @@ A manifest is a single UTF-8 JSON object, conventionally named `PN-<project-id>_
 | `manifest_type` | ✔ | Literal `"tgs-custody-manifest"`. |
 | `manifest_version` | ✔ | `"1.x"`. Minor versions only add optional fields. |
 | `project.id` | ✔ | Supplier's project number. |
-| `project.supplier` / `project.url` | ✔ | Who stands behind the record. |
+| `project.produced_by` / `project.url` | ✔ | Who stands behind the record. `project.supplier` is accepted as a deprecated alias for `project.produced_by`, for backward compatibility with v1.0 manifests. |
 | `created` | ✔ | ISO-8601 UTC timestamp of manifest creation. |
 | `license.class` | ✔ | One of `evaluation-only`, `non-exclusive`, `training-only`, `exclusive`, `full-ip-buyout`, `custom`. Delivery-level default; assets may override. |
 | `license.terms_url` | – | Where the governing terms live. |
@@ -62,8 +62,9 @@ Each entry in `assets`:
 | `path` | ✔ | Relative, forward slashes, no `..`, no absolute paths. |
 | `sha256` | ✔ | 64 lowercase hex chars — SHA-256 of the exact delivered bytes. |
 | `bytes` | – | File size; verified when present. |
-| `origin` | ✔ | `synthetic` (generated), `recorded` (performed/captured to spec, documented consent), `collected` (sourced under documented rights). |
+| `origin` | ✔ | `synthetic` (generated), `recorded` (performed/captured to spec, documented consent), `collected` (sourced under documented rights), `authored` (produced directly by the supplier, no third-party rights involved — project files, EDLs, notes, end cards), `derived` (produced by transforming other assets listed in this same manifest — edited finals). |
 | `generator.model`, `generator.license` | ✔ if synthetic | The generating model and the license it was operated under. `generator.version` recommended. |
+| `derived_from` | ✔ if derived | List of relative paths (within this manifest) to the source asset(s) this asset was transformed from. Must be non-empty. |
 | `params` | – | Generation parameters the supplier chooses to disclose. Free-form object. |
 | `license` | – | Per-asset override of `license.class`. |
 
@@ -84,10 +85,11 @@ A missing file and an altered file are distinct findings and MUST be reported as
 
 Deliveries may also carry a flat CSV manifest (one row per file with at minimum a filename column and a SHA-256 column). CSV manifests support fingerprint verification only — provenance fields live in the JSON form. The reference verifier accepts them via `--csv` with header auto-detection.
 
-## 5. Roadmap (v1.1, planned)
+## 5. Roadmap (v1.2, planned)
 
 - `signature` block: Ed25519 signature over the canonicalized manifest, so the *manifest itself* is tamper-evident and attributable to the supplier's published key.
 - `manifest_sha256` self-fingerprint convention for detached distribution.
+- Done (v1.1): `project.supplier` renamed to `project.produced_by` (`supplier` retained as a deprecated alias); the `project` block (`id` + `produced_by`/`supplier`) is now structurally validated; two new origin values — `authored` and `derived` (with required `derived_from`) — cover human-edited, project, and composited assets.
 - Done (v1.0): `license.class` expanded to six classes — `evaluation-only`, `non-exclusive`, `training-only`, `exclusive`, `full-ip-buyout`, `custom` — aligned with the TGS delivery system.
 
 ## 6. What this spec is not

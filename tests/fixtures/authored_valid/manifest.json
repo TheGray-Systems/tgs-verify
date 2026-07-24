@@ -1,0 +1,21 @@
+{
+  "manifest_type": "tgs-custody-manifest",
+  "manifest_version": "1.1",
+  "project": {
+    "id": "PN-TEST-AUTHORED",
+    "produced_by": "The Gray Systems",
+    "url": "https://thegray.systems"
+  },
+  "created": "2026-07-17T00:00:00Z",
+  "license": {
+    "class": "evaluation-only"
+  },
+  "assets": [
+    {
+      "path": "assets/production_notes.txt",
+      "sha256": "e4e73575cdb5abc037c7d3285732acc6945a06b7d464578d02a338114490a6c2",
+      "bytes": 54,
+      "origin": "authored"
+    }
+  ]
+}

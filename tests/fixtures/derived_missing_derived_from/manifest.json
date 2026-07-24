@@ -1,0 +1,27 @@
+{
+  "manifest_type": "tgs-custody-manifest",
+  "manifest_version": "1.1",
+  "project": {
+    "id": "PN-TEST-DERIVED-BAD",
+    "produced_by": "The Gray Systems",
+    "url": "https://thegray.systems"
+  },
+  "created": "2026-07-17T00:00:00Z",
+  "license": {
+    "class": "evaluation-only"
+  },
+  "assets": [
+    {
+      "path": "assets/source.txt",
+      "sha256": "63ccb74e811f30e95000c22ffc8f71f58f57a7ceb3f36831963e074cced1cf19",
+      "bytes": 24,
+      "origin": "authored"
+    },
+    {
+      "path": "assets/edited_final.txt",
+      "sha256": "cc63efd132b9c28d83c7018f4cb7eada315f6104783365d77098571f3374947a",
+      "bytes": 43,
+      "origin": "derived"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "manifest_type": "tgs-custody-manifest",
+  "manifest_version": "1.0",
+  "project": {
+    "id": "PN-TEST-V1-SUPPLIER",
+    "supplier": "The Gray Systems",
+    "url": "https://thegray.systems"
+  },
+  "created": "2026-07-16T00:00:00Z",
+  "license": {
+    "class": "evaluation-only"
+  },
+  "assets": [
+    {
+      "path": "assets/scene.txt",
+      "sha256": "2bec547261954288048cac474602e219f910d49462fd822341112d88bc938534",
+      "bytes": 33,
+      "origin": "synthetic",
+      "generator": {
+        "model": "example-noise-field",
+        "version": "1.0",
+        "license": "MIT (example)"
+      }
+    }
+  ]
+}
