@@ -1,6 +1,6 @@
 {
   "manifest_type": "tgs-custody-manifest",
-  "manifest_version": "1.0",
+  "manifest_version": "1.1",
   "project": {
     "id": "PN-EXAMPLE-01",
     "produced_by": "The Gray Systems",
