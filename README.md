@@ -62,6 +62,10 @@ Training-data provenance fails quietly. A dataset changes hands, a file gets re-
 - **v1.1** — `project.produced_by` (renamed from `project.supplier`, which remains a deprecated alias); project block now validated; two new origin values — `authored`, `derived` (with required `derived_from`).
 - **v1.0** — `license.class` expanded to six classes — `evaluation-only`, `non-exclusive`, `training-only`, `exclusive`, `full-ip-buyout`, `custom` — aligned with the TGS delivery system.
 
+## For AI agents
+
+An [Anthropic Agent Skill](./skills/tgs-verify-skill/SKILL.md) is included for agents that need to verify a TGS delivery as part of their workflow — install the skill from `skills/tgs-verify-skill`.
+
 ## License
 
 MIT. The manifest format (SPEC.md) is open for anyone to implement — verifiers, generators, or both.
